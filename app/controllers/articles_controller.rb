@@ -1,10 +1,13 @@
+# frozen_string_literal: true
+
+# Basic controller class for articles
 class ArticlesController < ApplicationController
-  http_basic_authenticate_with name: "dhh", password: "secret",
-                                 except: [:index, :show]
+  http_basic_authenticate_with name: 'dhh', password: 'secret',
+                               except: %i[index show]
   def index
     @articles = Article.all
   end
-  
+
   def show
     @article = Article.find(params[:id])
   end
@@ -16,11 +19,11 @@ class ArticlesController < ApplicationController
   def edit
     @article = Article.find(params[:id])
   end
-  
+
   def create
-    #render plain: params[:article].inspect
-    #@article = Article.new(params[:article])
-    #@article = Article.new(params.require(:article).permit(:title, :text))
+    # render plain: params[:article].inspect
+    # @article = Article.new(params[:article])
+    # @article = Article.new(params.require(:article).permit(:title, :text))
     @article = Article.new(article_params)
     if @article.save
       redirect_to @article
@@ -47,8 +50,8 @@ class ArticlesController < ApplicationController
   end
 
   private
+
   def article_params
     params.require(:article).permit(:title, :text)
   end
-
 end
