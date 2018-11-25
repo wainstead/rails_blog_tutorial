@@ -2,8 +2,11 @@
 <html>
   <head>
     <title>Blog</title>
+    <!-- call to csrf_meta_tags -->
     <%= csrf_meta_tags %>
+    <!-- call to csp_meta_tag -->
     <%= csp_meta_tag %>
+    <!-- end calls to rails functions -->
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
