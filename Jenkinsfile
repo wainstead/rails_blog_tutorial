@@ -3,8 +3,13 @@ pipeline {
     stages {
         stage('build') {
             steps {
-                sh 'ruby --version'
+                sh 'rspec'
             }
         }
+	stage('blippy') {
+	    steps {
+		sh 'echo "Hello sailor!"'
+	    }
+	}
     }
 }
